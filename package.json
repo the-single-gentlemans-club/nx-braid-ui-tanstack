@@ -2,7 +2,9 @@
   "name": "@nx-braid-ui-tanstack/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build-text-lint": "nx run-many -p org -t build test lint"
+  },
   "private": true,
   "dependencies": {
     "react": "18.3.1",
