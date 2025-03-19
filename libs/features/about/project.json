@@ -1,0 +1,9 @@
+{
+  "name": "feature-about",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/features/about/src",
+  "projectType": "library",
+  "tags": ["scope:org"],
+  "// targets": "to see all targets run: nx show project feature-about --web",
+  "targets": {}
+}

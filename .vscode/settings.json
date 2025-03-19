@@ -51,5 +51,6 @@
     "**/.eslintrc.json": false,
     "**/.vscodeignore": false
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+  "CodeGPT.apiKey": "CodeGPT Plus Beta"
 }

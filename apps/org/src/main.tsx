@@ -1,20 +1,37 @@
-import 'braid-design-system/reset'; // <-- Must be first
+import 'braid-design-system/reset'; // must go at top of file
 
 import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider, createRouter } from '@tanstack/react-router';
+
 
 import apacTheme from 'braid-design-system/themes/apac';
 import { BraidProvider } from 'braid-design-system';
 
-import App from './app/app';
+// Import the generated route tree
+import { routeTree } from './routeTree.gen';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <StrictMode>
-    <BraidProvider theme={apacTheme}>
-      <App />
-    </BraidProvider>
-  </StrictMode>
-);
+// Create a new router instance
+const router = createRouter({ routeTree });
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router;
+  }
+}
+
+// Render the app
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const rootElement = document.getElementById('root')!;
+
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <StrictMode>
+      <BraidProvider theme={apacTheme}>
+        <RouterProvider router={router} />
+      </BraidProvider>
+    </StrictMode>
+  );
+}
