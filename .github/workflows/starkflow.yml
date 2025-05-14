@@ -7,7 +7,7 @@ on:
       # Used to send this scan's results back to Stark.
       token:
         description: 'Stark token'
-        required: true
+        required: false
       # Allows Stark to identify this scan.
       display-title:
         description: 'Display title'
